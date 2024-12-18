@@ -42,15 +42,13 @@ body{
   }
   
   .container input:checked ~ .checkmark {
-    /*box-shadow: inset 3px 3px 5px #c5c5c5,
-                inset -3px -3px 5px #ffffff;*/
                 box-shadow: 1px 1px 5px #c5c5c5, -1px -1px 5px #ffffff;
   }
   
   /* Change the color of the icon when checked */
   .container input:checked ~ .checkmark .fa-power-off {
     color: #00FF00;
-    text-shadow: 0 0 15px #00FF00;/*text-shadow: 0 0 20px #00FF00;*/
+    text-shadow: 0 0 15px #00FF00;
     transition-duration: 0.5s;
   }
 
