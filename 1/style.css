@@ -1,0 +1,86 @@
+body{
+    display: grid;
+  place-items: center;
+  
+  margin: 0;
+  height: 100vh;
+  background-color: #e8e8e8;
+} 
+
+/* Hide the default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 2.3em;
+    width: 2.3em;
+    background-color: #ccc;
+    border-radius: 100%;
+    background: #e8e8e8;
+    box-shadow: 3px 3px 5px #c5c5c5,
+                -3px -3px 5px #ffffff;
+    padding: 13px;
+    box-sizing: border-box;
+    transition-duration: 0.5s;
+  }
+  
+  .container input:checked ~ .checkmark {
+    /*box-shadow: inset 3px 3px 5px #c5c5c5,
+                inset -3px -3px 5px #ffffff;*/
+                box-shadow: 1px 1px 5px #c5c5c5, -1px -1px 5px #ffffff;
+  }
+  
+  /* Change the color of the icon when checked */
+  .container input:checked ~ .checkmark .fa-power-off {
+    color: #00FF00;
+    text-shadow: 0 0 15px #00FF00;/*text-shadow: 0 0 20px #00FF00;*/
+    transition-duration: 0.5s;
+  }
+
+  .container input:not(:checked) ~ .checkmark .fa-power-off {
+    color: #403f3f;
+    text-shadow: none;
+    transition: color 0.5s, text-shadow 0.5s;
+}
+
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .container input:checked ~ .checkmark:after {
+    opacity: 1;
+  }
+  
+  /*.container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid darkgray;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+  }*/
+
+  .fa-power-off{
+    color: #403f3f;
+  }
