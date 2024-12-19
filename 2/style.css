@@ -1,0 +1,92 @@
+body {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  height: 100vh;
+  background-color: #e8e8e8;
+}
+
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: relative;
+  height: 60px; /* Taille totale du checkmark */
+  width: 60px;  /* Largeur totale du checkmark */
+  background-color: #e8e8e8;
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px #c5c5c5, -3px -3px 5px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.5s;
+}
+
+/* Light circle inside the checkmark */
+.light-circle {
+  height: 48px; /* Taille légèrement plus petite que le checkmark */
+  width: 48px;
+  border-radius: 50%;
+  border: 2px solid #403f3f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: border-color 0.5s, box-shadow 0.5s;
+}
+
+/* Icon styles */
+.fa-power-off {
+  font-size: 20px;
+  color: #403f3f;
+  transition: color 0.5s, text-shadow 0.5s, box-shadow 0.5s;
+}
+
+/* Change styles when checkbox is checked */
+.container input:checked ~ .checkmark {
+  box-shadow: 1px 1px 5px #c5c5c5, -1px -1px 5px #ffffff;
+}
+
+.container input:checked ~ .checkmark .light-circle {
+  border-color: #00FF00;
+  /* Ombres intérieure et extérieure */
+  box-shadow: 
+      inset 0 0 10px rgba(0, 255, 0, 0.9), /* Ombre intérieure verte */
+      0 0 10px rgba(0, 255, 0, 0.5), /* Glow principal légèrement renforcé */
+        0 0 20px rgba(0, 255, 0, 0.25); /* Glow secondaire légèrement renforcé */
+      /*inset 0 0 10px rgba(0, 255, 0, 0.9),  Ombre intérieure verte 
+      0 0 10px rgba(0, 255, 0, 0.9);        Ombre extérieure verte */
+      
+}
+
+.container input:checked ~ .checkmark .fa-power-off {
+  color: #00FF00;
+  text-shadow: 
+      0 0 10px rgba(0, 255, 0, 0.6),  /* Glow principal */
+      0 0 20px rgba(0, 255, 0, 0.4);  /* Glow secondaire */
+  box-shadow: 
+      0 0 15px rgba(0, 255, 0, 0.5), /* Éclat plus large */
+      inset 0 0 5px rgba(0, 255, 0, 0.3); /* Effet de brillance interne */
+}
+
+/* Default styles when not checked */
+.container input:not(:checked) ~ .checkmark .fa-power-off {
+  color: #403f3f;
+  text-shadow: none;
+  box-shadow: none;
+}
